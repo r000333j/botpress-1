@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import { Provider } from 'react-redux'
+import { Redirect, Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'react-router-redux'
 
-import App from '../App/Layout'
-
-import LoginPage from '../Pages/Login'
-import RegisterPage from '../Pages/Account/Register'
-import ChangePassword from '../Pages/Account/ChangePassword'
-
-import Auth from '../Auth'
-import PrivateRoute from './PrivateRoute'
 import store, { history } from '../store'
 import { extractCookie } from '../utils/cookies'
-
-import Confusion from './../Pages/Confusion'
-import Server from '../Pages/Server'
-import Workspace from '../Pages/Workspace'
-import MyAccount from '../Pages/MyAccount'
+import App from '../App/Layout'
+import Auth from '../Auth'
+import ChangePassword from '../Pages/Account/ChangePassword'
+import LoginPage from '../Pages/Account/Login'
+import RegisterPage from '../Pages/Account/Register'
+import WorkspacePicker from '../Pages/Account/WorkspacePicker'
 import Bot from '../Pages/Bot'
-import Debug from '../Pages/Server/Debug'
+import Confusion from '../Pages/Confusion'
+import MyAccount from '../Pages/MyAccount'
+import Server from '../Pages/Server'
 import Modules from '../Pages/Server/Modules'
-import WorkspacePicker from '../Pages/WorkspacePicker'
+import Debug from '../Pages/Tools/Debug'
+import Workspace from '../Pages/Workspace'
+
+import PrivateRoute from './PrivateRoute'
+import Tools from '~/Pages/Tools'
 
 export const makeMainRoutes = () => {
   const auth = new Auth()
@@ -36,10 +35,11 @@ export const makeMainRoutes = () => {
           await auth.setupWorkspace()
           setIsReady(true)
         } catch (err) {
-          window.location = '/admin/pickWorkspace'
+          window.location.href = '/admin/pickWorkspace'
         }
       }
 
+      // tslint:disable-next-line: no-floating-promises
       getWorkspaces()
     })
 
@@ -62,7 +62,7 @@ export const makeMainRoutes = () => {
               <Route path="/workspace" component={Workspace} />
               <Route path="/server" component={Server} />
               <Route path="/bot" component={Bot} />
-              <Route path="/debug" component={Debug} />
+              <Route path="/tools" component={Tools} />
               <Route path="/modules" component={Modules} />
               <Redirect from="/" to="/workspace/bots" />
             </Switch>

@@ -5,8 +5,6 @@ import { MdCopyright } from 'react-icons/md'
 import TabLayout, { AdminTab } from '../Layouts/Tabs'
 
 import Alerting from './Alerting'
-import Debug from './Debug'
-import Languages from './Languages'
 import LicenseStatus from './LicenseStatus'
 import Monitoring from './Monitoring'
 import Versioning from './Versioning'
@@ -14,13 +12,6 @@ import Versioning from './Versioning'
 const Server = (props: any) => {
   const title = 'Server'
   const tabs: AdminTab[] = [
-    {
-      id: 'tab-languages',
-      name: 'Languages',
-      route: '/server/languages',
-      icon: <Icon icon="globe-network" />,
-      component: Languages
-    },
     {
       id: 'tab-monitoring',
       name: 'Monitoring',
@@ -52,13 +43,6 @@ const Server = (props: any) => {
       route: '/server/version',
       icon: <Icon icon="changes" />,
       component: Versioning
-    },
-    {
-      id: 'tab-debug',
-      name: 'Debug',
-      route: '/server/debug',
-      icon: <Icon icon="console" />,
-      component: Debug
     }
   ]
 

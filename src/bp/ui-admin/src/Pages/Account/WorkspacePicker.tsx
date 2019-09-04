@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Card, CardBody } from 'reactstrap'
+import api from '~/api'
+import { setActiveWorkspace } from '~/Auth'
 
-import { setActiveWorkspace } from '../Auth'
-import logo from '../media/nobg_white.png'
-import api from '../api'
+import logo from '../../media/nobg_white.png'
 
 class WorkspacePicker extends Component {
   state = {
@@ -12,6 +12,7 @@ class WorkspacePicker extends Component {
   }
 
   componentDidMount() {
+    // tslint:disable-next-line: no-floating-promises
     this.loadWorkspaces()
   }
 

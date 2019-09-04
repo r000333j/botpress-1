@@ -16,7 +16,6 @@ import { push } from 'react-router-redux'
 import { fetchProfile } from '../reducers/user'
 import Auth from '../Auth/index'
 import BasicAuthentication from '../Auth/index'
-import GravatarImage from '../Pages/Components/GravatarImage'
 
 class UserDropdownMenu extends Component<Props> {
   private auth: BasicAuthentication
@@ -60,13 +59,13 @@ class UserDropdownMenu extends Component<Props> {
                 id="btn-debug"
                 icon="console"
                 text="Configure Debug"
-                onClick={() => this.props.push('/server/debug')}
+                onClick={() => this.props.push('/tools/debug')}
               />
               <MenuItem
                 id="btn-lang"
                 icon="globe-network"
                 text="Languages"
-                onClick={() => this.props.push('/server/languages')}
+                onClick={() => this.props.push('/tools/languages')}
               />
             </React.Fragment>
           )}

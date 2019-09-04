@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Redirect } from 'react-router-dom'
-import logo from '../media/nobg_white.png'
-import api from '../api'
-import { setActiveWorkspace } from '../Auth'
+import logo from '../../media/nobg_white.png'
+import api from '../../api'
+import { setActiveWorkspace } from '../../Auth'
 import { Alert, Card, CardBody, CardTitle, Button, Input, FormGroup, CardText } from 'reactstrap'
 import { get } from 'lodash'
 
