@@ -4,7 +4,7 @@ const onServerStarted = async (bp: typeof sdk) => {}
 const onServerReady = async (bp: typeof sdk) => {}
 
 const botTemplates: sdk.BotTemplate[] = [
-  { id: 'empty-bot', name: 'Empty Bot', desc: `Start fresh with a clean flow` }
+  { id: 'weather-bot', name: 'Weather Bot', desc: `Gets the weather for a city` }
 ]
 
 const entryPoint: sdk.ModuleEntryPoint = {
