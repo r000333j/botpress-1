@@ -12,11 +12,10 @@ const entryPoint: sdk.ModuleEntryPoint = {
   onServerReady,
   botTemplates,
   definition: {
-    name: 'basic-module',
+    name: 'examples',
     menuIcon: 'none',
-    menuText: 'BasicExample',
-    noInterface: false,
-    fullName: 'BasicExample',
+    menuText: 'Examples',
+    fullName: 'Examples',
     homepage: 'https://botpress.io'
   }
 }
