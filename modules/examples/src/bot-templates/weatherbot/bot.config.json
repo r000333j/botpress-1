@@ -4,7 +4,7 @@
   "private": false,
   "details": {},
   "$schema": "../../bot.config.schema.json",
-  "description": "Empty bot",
+  "description": "Gets the current weather for a given city",
   "active": true,
   "version": "12.1.3",
   "author": "Botpress, Inc.",
