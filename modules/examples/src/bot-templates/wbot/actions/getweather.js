@@ -7,11 +7,22 @@ const axios = require('axios')
        * @author Simon-Pierre Gingras
        */
   const myAction = async () => {
-    const appId = 'c9da9a8cc97c1c74d9e8fa8f5683aa2e'
+    const config = await bp.config.getModuleConfig('examples')
+    const apiKey = config.openWeatherApiKey
     const query = event.payload.text
-    const response = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${appId}`
-    )
+
+    let response;
+    try {
+      response = await axios.get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${apiKey}`
+      )
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        throw new Error("Request failed with status code 401. Have you set up your OpenWeather API Key properly?")
+      }
+      throw error
+    }
+
     const city = response.data.name
     const country = response.data.sys.country
     const temperature = response.data.main.temp
